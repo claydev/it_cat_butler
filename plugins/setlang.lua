@@ -2,8 +2,16 @@ local function doKeyboard_lang()
 	local keyboard = {
 		inline_keyboard = {}
 	}
+	local line = {}
 	for i,lang in pairs(config.available_languages) do
-		local line = {{text = lang, callback_data = 'langselected:'..lang}}
+		local lang_btn = {text = lang, callback_data = 'langselected:'..lang}
+		table.insert(line, lang_btn)
+		if i % 3 == 0 then
+			table.insert(keyboard.inline_keyboard, line)
+			line = {}
+		end
+	end
+	if #line ~= 0 then
 		table.insert(keyboard.inline_keyboard, line)
 	end
 	return keyboard

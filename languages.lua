@@ -1713,12 +1713,12 @@ return {
     },
     ru = {
         status = {
-            kicked = '&&&1 is banned from this group',
-            left = '&&&1 left the group or has been kicked and unbanned',
-            administrator = '&&&1 is an Admin',
-            creator = '&&&1 is the group creator',
-            unknown = 'This user has nothing to do with this chat',
-            member = '&&&1 is a chat member'
+            kicked = '&&&1 забанен в этой группе',
+            left = '&&&1 покинул группу или был кикнут и разбанен',
+            administrator = '&&&1 администратор',
+            creator = '&&&1 создатель группы',
+            unknown = 'Этот пользователь не имеет отношения к этому чату',
+            member = '&&&1 участник чата'
         },
         getban = {
             header = '*Global stats* for ',
@@ -1747,17 +1747,17 @@ return {
             remwarns_kb = 'Remove warns'
         },
         bonus = {
-            general_pm = '_I\'ve sent you the message in private_',
+            general_pm = '_Я отправил тебе личное сообщение_',
             no_user = 'Я не видел этого человека раньше.\nЕсли ты хочешь объяснить мне, кто он, сделай мне forward его сообщения',
             the_group = 'Группа',
-            adminlist_admin_required = 'I\'m not a group Admin.\n*Only an Admin can see the administrators list*',
-            settings_header = 'Текущие настройки для *the group*:\n\n*Язык*: `&&&1`\n',
+            adminlist_admin_required = 'Я не администратор группы\n*Только админы могут видеть список администраторов*',
+            settings_header = 'Текущие настройки *группы*:\n\n*Язык*: `&&&1`\n',
             reply = '*Reply to someone* to use this command, or write a *username*',
             too_long = 'This text is too long, I can\'t send it',
             msg_me = '_Чтобы я мог тебе писать, сначала напиши мне_',
             menu_cb_settings = 'Tap on an icon!',
             menu_cb_warns = 'Use the row below to change the warns settings!',
-            menu_cb_media = 'Tap on a switch!',
+            menu_cb_media = 'Нажми на переключатель!',
             tell = '*ID группы*: &&&1'
         },
         not_mod = 'Ты *не* модератор',
@@ -1875,7 +1875,7 @@ return {
                     ..'...and more, below you can find the "all commands" button to get the whole list!\n'
                     ..'\nTo use me, *you need to add me as administrator of the group*, or Telegram won\'t let me work! (if you have some doubts about this, check [this post](https://telegram.me/GroupButler_ch/63))'
                     ..'\nYou can report bugs/send feedbacks/ask a question to my creator just using "`/c <feedback>`" command. EVERYTHING IS WELCOME!',
-            group_success = '_Я отправил тебе приватное сообщение_',
+            group_success = '_Я отправил тебе личное сообщение_',
             group_not_success = '_Сначала напиши мне, потом я смогу писать тебе_',
             initial = 'Выбери *роль*, которую ты хочешь посмотреть:',
             kb_header = 'Tap on a button to see the *related commands*'
@@ -1890,7 +1890,7 @@ return {
             link_unsetted = 'Ссылка *удалена*',
         },
         mod = {
-            modlist = '*Creator*:\n&&&1\n\n*Admins*:\n&&&2'
+            modlist = '*Создатель*:\n&&&1\n\n*Администраторы*:\n&&&2'
         },
         report = {
             no_input = 'Напиши свои идеи / баги /ошибки после !\nExample: !hello, this is a test',
@@ -1901,7 +1901,7 @@ return {
             welcome = 'Привет, &&&1! Добро пожаловать в *&&&2*!',
             welcome_rls = 'АНАРХИЯ!',
             welcome_abt = 'Описание этой группы отсутствует!',
-            welcome_modlist = '\n\n*Creator*:\n&&&1\n*Admins*:\n&&&2',
+            welcome_modlist = '\n\n*Создатель*:\n&&&1\n*Администраторы*:\n&&&2',
             abt = '\n\n*Описание*:\n',
             rls = '\n\n*Правила*:\n',
         },
@@ -1913,7 +1913,7 @@ return {
             no_input_set = ' Пожалуйста, напиши что-нибудь после "/setabout"',
             clean = ' Описание было изменено.',
             new = '*Новое описание:*\n"&&&1"',
-            about_setted = 'New description *saved successfully*!'
+            about_setted = 'Новое описание *успешно сохранено*!'
         },
         setrules = {
             no_rules = '*ТОЛЬКО АНАРХИЯ*!',
@@ -1923,7 +1923,7 @@ return {
             no_input_set = 'Пожалуйста, напиши что-нибудь после "/setrules"',
             clean = 'Правила были очищены.',
             new = '*Новые правила:*\n"&&&1"',
-            rules_setted = 'New rules *saved successfully*!'
+            rules_setted = 'Новые правила *успешно сохранены*!'
         },
         settings = {
             disable = {
@@ -1934,7 +1934,7 @@ return {
                 flag_locked = '/flag теперь не будет доступна',
                 extra_locked = '#extra теперь доступна только для модераторов',
                 rtl_locked = 'Anti-RTL фильтр включен',
-                flood_locked = 'Antiflood is nor off',
+                flood_locked = 'Антифлуд фильтр выключен',
                 arab_locked = 'Anti-arab фильтр включен',
                 report_locked = '@admin теперь не будет доступна',
                 admin_mode_locked = 'Admin mode off',
@@ -1947,7 +1947,7 @@ return {
                 flag_unlocked = '/flag теперь включена',
                 extra_unlocked = 'Extra # теперь доступна для всех',
                 rtl_unlocked = 'Anti-RTL фильтр выключен',
-                flood_unlocked = 'Аnti-flood is now on',
+                flood_unlocked = 'Антифлуд фильтр включён',
                 arab_unlocked = 'Anti-arab фильтр тепепь выключен',
                 report_unlocked = '@admin теперь включена',
                 admin_mode_unlocked = 'Admin mode on',
@@ -1994,7 +1994,7 @@ return {
             broken_group = 'There are no settings saved for this group.\nPlease run /initgroup to solve the problem :)',
             Rules = '/rules',
             About = '/about',
-            Welcome = 'Приветственное сообщение',
+            Welcome = 'Приветствие',
             Modlist = '/adminlist',
             Flag = 'Флаг',
             Extra = 'Экстра',
@@ -2015,35 +2015,35 @@ return {
             getwarns_reply = 'Ответь на сообщение пользователя, у которого хочешь проверить количество предупреждений',
             getwarns = '&&&1 (*&&&2/&&&3*)\nMedia: (*&&&4/&&&5*)',
             nowarn_reply = 'Ответь на сообщение пользователя, чтобы обнулить его счетчик предупреждений',
-            ban_motivation = 'too many warnings',
-            inline_high = 'The new value is too high (>12)',
-            inline_low = 'The new value is too low (<1)',
-            zero = 'The number of warnings received by this user is already _zero_',
-            warn_removed = '*Warn removed!*\n_Number of warnings_   *&&&1*\n_Max allowed_   *&&&2*',
+            ban_motivation = 'слишком много предупреждений',
+            inline_high = 'Новое значение слишком большое (>12)',
+            inline_low = 'Новое значение слишком маленькое (<1)',
+            zero = 'Количество предупреждений, полученных этим пользователем, уже _нулевое_',
+            warn_removed = '*Предупреждение удалено!*\n_Количество предупреждений_   *&&&1*\n_Максимально допустимо_   *&&&2*',
             nowarn = 'Количество предупреждений у этого пользователя *сброшено*'
         },
         setlang = {
             list = '*Список доступных языков:*',
             success = '*Новый язык установлен:* &&&1',
-            error = 'Language not yet supported'
+            error = 'Язык ещё не поддерживается'
         },
 		banhammer = {
-            kicked = '`&&&1` kicked `&&&2`! ( все еще может зайти )',
-            banned = '`&&&1` banned `&&&2`!',
+            kicked = '`&&&1` кикнут `&&&2`! ( все еще может зайти )',
+            banned = '`&&&1` забанен `&&&2`!',
             already_banned_normal = '&&&1 *уже забанен*!',
-            unbanned = 'User unbanned!',
-            reply = 'Ответь (reply) на сообщение этого пользователя',
+            unbanned = 'Пользователь разбанен!',
+            reply = 'Ответь на сообщение этого пользователя',
             globally_banned = '&&&1 был глобально забанен!',
             not_banned = 'Это обычная группа, пользователи не блокируются, когда кикаются из группы',
-            banlist_header = '*Banned users*:\n\n',
-            banlist_empty = '_The list is empty_',
-            banlist_error = '_An error occurred while cleaning the banlist_',
-            banlist_cleaned = '_The banlist has been cleaned_',
+            banlist_header = '*Заблокированные пользователи*:\n\n',
+            banlist_empty = '_Список пуст_',
+            banlist_error = '_Произошла ошибка при очистке банлиста_',
+            banlist_cleaned = '_Банлист очищен_',
             tempban_zero = 'For this, you can directly use /ban',
             tempban_week = 'The time limit is one week (10.080 minutes)',
-            tempban_banned = 'User &&&1 banned. Ban expiration:',
-            tempban_updated = 'Ban time updated for &&&1. Ban expiration:',
-            general_motivation = 'I can\'t kick this user.\nProbably I\'m not an Amdin, or the user is an Admin iself'
+            tempban_banned = 'Пользователь &&&1 забанен. Бан истекает:',
+            tempban_updated = 'Время бана обновлено для &&&1. Бан истекает:',
+            general_motivation = 'Я не могу забанить этого пользователя.\nВозможно, я не админ или пользователь сам админ'
         },
         floodmanager = {
             number_invalid = '`&&&1` неправильное число!\nЧисло должно быть *больше* чем `3` и *меньше* чем `26`',
@@ -2053,33 +2053,32 @@ return {
             disabled = 'Антифлуд фильтр выключен',
             kick = 'Теперь флудеры будут кикнуты',
             ban = 'Теперь флудеры будут забанены',
-            general_motivation = 'I can\'t kick this user.\nProbably I\'m not an Amdin, or the user is an Admin iself',
             changed_cross = '&&&1 -> &&&2',
-            text = 'Texts',
-            image = 'Images',
-            sticker = 'Stickers',
-            gif = 'Gif',
-            video = 'Videos',
-            sent = '_I\'ve sent you the anti-flood menu in private_',
-            ignored = '[&&&1] will be ignored by the anti-flood',
-            not_ignored = '[&&&1] won\'t be ignored by the anti-flood',
-            number_cb = 'Current sensitivity. Tap on the + or the -',
-            header = 'You can manage the group flood settings from here.\n'
-                ..'\n*1st row*\n'
-                ..'• *ON/OFF*: the current status of the anti-flood\n'
-                ..'• *Kick/Ban*: what to do when someone is flooding\n'
-                ..'\n*2nd row*\n'
-                ..'• you can use *+/-* to change the current sensitivity of the antiflood system\n'
-                ..'• the number it\'s the max number of messages that can be sent in _5 seconds_\n'
-                ..'• max value: _25_ - min value: _4_\n'
-                ..'\n*3rd row* and below\n'
-                ..'You can set some exceptions for the antiflood:\n'
-                ..'• ✅: the media will be ignored by the anti-flood\n'
-                ..'• ❌: the media won\'t be ignored by the anti-flood\n'
-                ..'• *Note*: in "_texts_" are included all the other types of media (file, audio...)'
+            text = 'Текст',
+            image = 'Изображения',
+            sticker = 'Стикеры',
+            gif = 'GIF',
+            video = 'Видео',
+            sent = '_Я отправил тебе меню антифлуда личным сообщением_',
+            ignored = 'Антифлуд будет игнорировать [&&&1]',
+            not_ignored = 'Антифлуд не будет игнорировать [&&&1]',
+            number_cb = 'Текущая чувствительность. Нажми + или -',
+            header = 'Тут можно управлять настройками антифлуда.\n'
+                ..'\n*1-ая строка*\n'
+                ..'• *ON/OFF*: текущий статус антифлуда\n'
+                ..'• *Kick/Ban*: что делать с флудерами\n'
+                ..'\n*2-ая строка*\n'
+                ..'• Используй *+/-* чтобы менять текущую чувствительность системы антифлуда\n'
+                ..'• Это число — максимальное количество сообщений, которые можно отправить за _5 секунд_\n'
+                ..'• Максимально: _25_ - минимально: _4_\n'
+                ..'\n*3-ая строка* и ниже\n'
+                ..'Можно установить исключения для андифлуда:\n'
+                ..'• ✅: медиа будет игнорироваться антифлудом\n'
+                ..'• ❌: медиа не будет игнорироваться антифлудом\n'
+                ..'• *Примечание*: "_текст_" включает в себя все остальные типы медиа (файлы, аудио…)'
         },
         mediasettings = {
-			warn = 'Этот тип медиа *не разрешен* в этой группе.\n_В следующий раз_ ты будешь кикнут или забанен',
+			warn = 'Этот тип медиа *не разрешён* в этой группе.\n_В следующий раз_ ты будешь кикнут или забанен',
             settings_header = '*Текущие настройки для медиа*:\n\n',
             changed = 'Новый статус для [&&&1] = &&&2',
         },
@@ -2088,13 +2087,13 @@ return {
             flood_kick = '&&&1 *кикнут* за флуд',
             media_kick = '&&&1 *кикнут*: отправленный тип медиа не разрешен',
             media_ban = '&&&1 *забанен*: отправленный тип медиа не разрешен',
-            rtl_kicked = '&&&1 *кикнут*: rtl символы в имени/сообщениях не разрешены',
-            arab_kicked = '&&&1 *кикнут*: арабские сообщения обнаружены',
-            rtl_banned = '&&&1 *banned*: rtl character in names/messages not allowed!',
+            rtl_kicked = '&&&1 *кикнут*: RTL символы в имени/сообщениях не разрешены!',
+            arab_kicked = '&&&1 *кикнут*: обнаружены арабские сообщения',
+            rtl_banned = '&&&1 *banned*: RTL символы в имени/сообщениях не разрешены!',
             arab_banned = '&&&1 *banned*: arab message detected!',
-            flood_motivation = 'Banned for flood',
-            media_motivation = 'Sent a forbidden media',
-            first_warn = 'This type of media is *not allowed* in this chat.'
+            flood_motivation = 'Забанен за флуд',
+            media_motivation = 'Отправил запрещённое медиа',
+            first_warn = 'Этот тип медиа *не разрешён* в этом чате.'
         },
         kick_errors = {
             [1] = 'Я не администратор этой группы, я не могу кикать людей', --1
@@ -2113,19 +2112,19 @@ return {
         },
         all = {
             dashboard = {
-                private = '_I\'ve sent you the group dashboard in private_',
+                private = '_Я отправил тебе панель личным сообщением_',
                 first = 'Navigate this message to see *all the info* about this group!',
                 antiflood = '- *Status*: `&&&1`\n- *Action* when an user floods: `&&&2`\n- Number of messages *every 5 seconds* allowed: `&&&3`\n- *Ignored media*:\n&&&4',
-                settings = 'Settings',
-                admins = 'Admins',
-                rules = 'Rules',
-                about = 'Description',
-                welcome = 'Welcome message',
-                extra = 'Extra commands',
-                flood = 'Anti-flood settings',
-                media = 'Media settings'
+                settings = 'Настройки',
+                admins = 'Админы',
+                rules = 'Правила',
+                about = 'Описание',
+                welcome = 'Приветствие',
+                extra = 'Доп. команды',
+                flood = 'Настройки антифлуда',
+                media = 'Настройки медиа'
             },
-            menu = 'Я отправил тебе меню настроек личным сообщением',
+            menu = '_Я отправил тебе меню настроек личным сообщением_',
             menu_first = 'Manage the settings of the group.\n'
                 ..'\nSome commands (_/rules, /about, /adminlist, #extra commands_) can be *disabled for non-admin users*\n'
                 ..'What happens if a command is disabled for non-admins:\n'
