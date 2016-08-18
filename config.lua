@@ -66,6 +66,7 @@ return {
 			['Modlist'] = 'no',
 			['Report'] = 'yes',
 			['Welcome'] = 'no',
+			['Goodbye'] = 'no',
 			['Extra'] = 'no',
 			['Flood'] = 'no',
 			['Admin_mode'] = 'yes',
@@ -79,7 +80,9 @@ return {
 			['Rtl'] = 'allowed'
 		},
 		['floodexceptions'] = {
+			['text'] = 'no',
 			['image'] = 'no',
+			['forward'] = 'no',
 			['video'] = 'no',
 			['sticker'] = 'no',
 			['gif'] = 'no'
@@ -92,6 +95,9 @@ return {
 		['welcome'] = {
 			['type'] = 'composed',
 			['content'] = 'no'
+		},
+		['goodbye'] = {
+			['type'] = 'custom'
 		},
 		['media'] = {
 			['image'] = 'allowed',

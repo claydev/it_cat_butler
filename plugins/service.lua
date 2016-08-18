@@ -1,16 +1,15 @@
-local function gsub_custom_welcome(msg, custom)
-	local name = msg.added.first_name:mEscape()
-	local name = name:gsub('%%', '')
-	local id = msg.added.id
+local function gsub_custom_inform(msg, custom)
+	local user = msg.added or msg.removed
+	local name = user.first_name:mEscape():gsub('%%', '')
+	local id = user.id
 	local username
-	local title = msg.chat.title:mEscape()
-	if msg.added.username then
-		username = '@'..msg.added.username:mEscape()
+	local title = msg.chat.title:mEscape():gsub('%%', '')
+	if user.username then
+		username = '@'..user.username:mEscape()
 	else
 		username = '(no username)'
 	end
-	custom = custom:gsub('$name', name):gsub('$username', username):gsub('$id', id):gsub('$title', title)
-	return custom
+	return custom:gsub('$name', name):gsub('$username', username):gsub('$id', id):gsub('$title', title)
 end
 
 local function get_welcome(msg, ln)
@@ -24,7 +23,7 @@ local function get_welcome(msg, ln)
 		api.sendDocumentId(msg.chat.id, file_id)
 		return false
 	elseif type == 'custom' then
-		return gsub_custom_welcome(msg, content)
+		return gsub_custom_inform(msg, content)
 	elseif type == 'composed' then
 		if not(content == 'no') then
 			local abt = cross.getAbout(msg.chat.id, ln)
@@ -57,6 +56,28 @@ local function get_welcome(msg, ln)
 		else
 			return make_text(lang[ln].service.welcome, msg.added.first_name:mEscape_hard(), msg.chat.title:mEscape_hard())
 		end
+	end
+end
+
+local function get_goodbye(msg, ln)
+	if is_locked(msg, 'Goodbye') then
+		return false
+	end
+	local type = db:hget('chat:'..msg.chat.id..':goodbye', 'type')
+	local content = db:hget('chat:'..msg.chat.id..':goodbye', 'content')
+	if type == 'media' then
+		local file_id = content
+		api.sendDocumentId(msg.chat.id, file_id)
+		return false
+	elseif type == 'custom' then
+		if not content then
+			local name = msg.removed.first_name
+			if msg.removed.username then
+				name = name..' (@'..msg.removed.username..')'
+			end
+			return make_text(lang[ln].service.goodbye, name:mEscape_hard())
+		end
+		return gsub_custom_inform(msg, content)
 	end
 end
 
@@ -136,6 +157,11 @@ local action = function(msg, blocks, ln)
 				end
 				cross.saveBan(msg.removed.id, action)
 			end
+		end
+
+		local text = get_goodbye(msg, ln)
+		if text then
+			api.sendMessage(msg.chat.id, text, true)
 		end
 	end
 end

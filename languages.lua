@@ -91,7 +91,7 @@ return {
                         .."`/media list` = show the current settings for all the media.\n"
                         .."\n*List of supported media*: _image, audio, video, sticker, gif, voice, contact, file, link_\n",
                 welcome = "*Moderators: welcome settings*\n\n"
-                            .."`/menu` = receive in private the menu keyboard. You will find an option to enable/disable the welcome message.\n"
+							.."`/menu` = receive in private the menu keyboard. You will find an option to enable/disable welcome and goodbye messages.\n"
                             .."\n*Custom welcome message:*\n"
                             .."`/welcome Welcome $name, enjoy the group!`\n"
                             .."Write after \"/welcome\" your welcome message. You can use some placeholders to include the name/username/id of the new member of the group\n"
@@ -102,7 +102,11 @@ return {
                             .."You can compose your welcome message with the rules, the description and the moderators list.\n"
                             .."You can compose it by writing `/welcome` followed by the codes of what the welcome message has to include.\n"
                             .."_Codes_ : *r* = rules; *a* = description (about); *m* = adminlist.\n"
-                            .."For example, with \"`/welcome rm`\", the welcome message will show rules and moderators list",
+                            .."For example, with \"`/welcome rm`\", the welcome message will show rules and moderators list\n\n"
+							.."*Goodbye message*\n"
+							.."Also you can set the custom goodbye message:\n"
+							.."`/goodbye` _message_\n"
+							.."Same placeholders and media are available",
                 extra = "*Moderators: extra commands*\n\n"
                         .."`/extra [#trigger] [reply]` = set a reply to be sent when someone writes the trigger.\n"
                         .."_Example_ : with \"`/extra #hello Good morning!`\", the bot will reply \"Good morning!\" each time someone writes #hello.\n"
@@ -192,6 +196,7 @@ return {
             welcome_modlist = '\n\n*Creator*:\n&&&1\n*Admins*:\n&&&2',
             abt = '\n\n*Description*:\n',
             rls = '\n\n*Rules*:\n',
+            goodbye = 'Goodbye, &&&1!',
         },
         setabout = {
             no_bio = '*No description* for this group.',
@@ -248,11 +253,16 @@ return {
                 am = 'New settings for the welcome message:\nRules\n*About*\n*Moderators list*',
                 ram = 'New settings for the welcome message:\n*Rules*\n*About*\n*Moderators list*',
                 no = 'New settings for the welcome message:\nRules\nAbout\nModerators list',
-                wrong_input = 'Argument unavailable.\nUse _/welcome [no|r|a|ra|ar]_ instead',
                 custom = '*Custom welcome message* setted!\n\n&&&1',
                 custom_setted = '*Custom welcome message saved!*',
-                wrong_markdown = '_Not setted_ : I can\'t send you back this message, probably the markdown is *wrong*.\nPlease check the text sent',
             },
+			goodbye = {
+				no_input = 'No goodbye message',
+				media_setted = 'New media setted as goodbye message: ',
+				reply_media = 'Reply to a `sticker` or a `gif` to set them as *goodbye message*',
+				custom = '*Custom goodbye message* setted!\n\n&&&1',
+				custom_setted = '*Custom goodbye message saved!*',
+			},
             resume = {
                 header = 'Current settings for *&&&1*:\n\n*Language*: `&&&2`\n',
                 w_a = '*Welcome type*: `welcome + about`\n',
@@ -279,6 +289,7 @@ return {
             Rules = '/rules',
             About = '/about',
             Welcome = 'Welcome message',
+			Goodbye = 'Goodbye message',
             Modlist = '/adminlist',
             Flag = 'Flag',
             Extra = 'Extra',
@@ -514,7 +525,7 @@ return {
                         .."`/media list` = mostra l'elenco delle impostazioni attuali per i media.\n"
                         .."\n*Lista dei media supportati*: _image, audio, video, sticker, gif, voice, contact, file, link_\n",
                 welcome = "*Moderatori: messaggio di benvenuto*\n\n"
-                            .."`/menu` = ricevi in privato la tastiera del menu. Lì troverai un\'opzione per abilitare/disabilitare il messaggio di benvenuto.\n"
+							.."`/menu` = receive in private the menu keyboard. You will find an option to enable/disable welcome and goodbye messages.\n"
                             .."\n*Messaggio di benvenuto personalizzato:*\n"
                             .."`/welcome Benvenuto $name, benvenuto nel gruppo!`\n"
                             .."Scrivi dopo \"/welcome\" il tuo benvenuto personalizzato. Puoi usare dei segnaposto per includere nome/username/id del nuovo membro del gruppo\n"
@@ -525,7 +536,11 @@ return {
                             .."Puoi comporre il messaggio di benvenuto con le regole, la descrizione e la lista dei moderatori.\n"
                             .."Per comporlo, scrivi `/welcome` seguito dai codici di cosa vuoi includere nel messaggio.\n"
                             .."_Codici_ : *r* = regole; *a* = descrizione (about); *m* = moderatori.\n"
-                            .."Ad esempio, con \"`/welcome rm`\"il messaggio di benvenuto mostrerà regole e moderatori",
+                            .."Ad esempio, con \"`/welcome rm`\"il messaggio di benvenuto mostrerà regole e moderatori\n\n"
+							.."*Goodbye message*\n"
+							.."Also you can set the custom goodbye message:\n"
+							.."`/goodbye` _message_\n"
+							.."Same placeholders and media are available",
                 extra = "*Moderatori: comandi extra*\n\n"
                         .."`/extra [#comando] [risposta]` = scrivi la risposta che verrà inviata quando il comando viene scritto.\n"
                         .."_Esempio_ : con \"`/extra #ciao Buon giorno!`\", il bot risponderà \"Buon giorno!\" ogni qualvolta qualcuno scriverà #ciao.\n"
@@ -614,6 +629,7 @@ return {
             welcome_modlist = '\n\n*Creatore*:\n&&&1\n*Admin*:\n&&&2',
             abt = '\n\n*Descrizione*:\n',
             rls = '\n\n*Regole*:\n',
+            goodbye = 'Goodbye, &&&1!',
         },
         setabout = {
             no_bio = '*Nessuna descrizione* per questo gruppo.',
@@ -674,11 +690,16 @@ return {
                 am = 'Nuove impostazioni per il messaggio di benvenuto:\nRegole\n*Descrizione*\n*Lista dei moderatori*',
                 ram = 'Nuove impostazioni per il messaggio di benvenuto:\n*Regole*\n*Descrizione*\n*Lista dei moderatori*',
                 no = 'Nuove impostazioni per il messaggio di benvenuto:\nRegole\nDescrizione\nLista dei moderatori',
-                wrong_input = 'Argomento non disponibile.\nUsa invece _/welcome [no|r|a|ra|ar]_',
                 custom = '*Messaggio di benvenuto personalizzato* impostato!\n\n&&&1',
                 custom_setted = '*Messaggio di benvenuto personalizzato salvato!*',
-                wrong_markdown = '_Non impostato_ : non posso reinviarti il messaggio, probabilmente il markdown usato è *sbagliato*.\nPer favore, controlla il messaggio inviato e riprova',
             },
+			goodbye = {
+				no_input = 'No goodbye message',
+				media_setted = 'New media setted as goodbye message: ',
+				reply_media = 'Reply to a `sticker` or a `gif` to set them as *goodbye message*',
+				custom = '*Custom goodbye message* setted!\n\n&&&1',
+				custom_setted = '*Custom goodbye message saved!*',
+			},
             resume = {
                 header = 'Impostazioni correnti di *&&&1*:\n\n*Lingua*: `&&&2`\n',
                 w_media = "*Tipo di benvenuto*: `gif/sticker`\n",
@@ -706,6 +727,7 @@ return {
             Rules = '/rules',
             About = '/about',
             Welcome = 'Messaggio di benvenuto',
+			Goodbye = 'Goodbye message',
             Modlist = '/adminlist',
             Flag = 'Flag',
             Extra = 'Extra',
@@ -944,7 +966,7 @@ return {
                         .."`/media list` = show the current settings for all the media.\n"
                         .."\n*List of supported media*: _image, audio, video, sticker, gif, voice, contact, file, link_\n",
                 welcome = "*Moderators: welcome settings*\n\n"
-                            .."`/menu` = receive in private the menu keyboard. You will find an option to enable/disable the welcome message.\n"
+							.."`/menu` = receive in private the menu keyboard. You will find an option to enable/disable welcome and goodbye messages.\n"
                             .."\n*Custom welcome message:*\n"
                             .."`/welcome Welcome $name, enjoy the group!`\n"
                             .."Write after \"/welcome\" your welcome message. You can use some placeholders to include the name/username/id of the new member of the group\n"
@@ -955,7 +977,11 @@ return {
                             .."You can compose your welcome message with the rules, the description and the moderators list.\n"
                             .."You can compose it by writing `/welcome` followed by the codes of what the welcome message has to include.\n"
                             .."_Codes_ : *r* = rules; *a* = description (about); *m* = adminlist.\n"
-                            .."For example, with \"`/welcome rm`\", the welcome message will show rules and moderators list",
+                            .."For example, with \"`/welcome rm`\", the welcome message will show rules and moderators list\n\n"
+							.."*Goodbye message*\n"
+							.."Also you can set the custom goodbye message:\n"
+							.."`/goodbye` _message_\n"
+							.."Same placeholders and media are available",
                 extra = "*Moderators: extra commands*\n\n"
                         .."`/extra [#trigger] [reply]` = set a reply to be sent when someone writes the trigger.\n"
                         .."_Example_ : with \"`/extra #hello Good morning!`\", the bot will reply \"Good morning!\" each time someone writes #hello.\n"
@@ -1046,6 +1072,7 @@ return {
             welcome_modlist = '\n\n*Creator*:\n&&&1\n*Admins*:\n&&&2',
             abt = '\n\n*Descripcion*:\n',
             rls = '\n\n*Reglas*:\n',
+            goodbye = 'Goodbye, &&&1!',
         },
         setabout = {
             no_bio = '*NO hay descripcion* de este grupo.',
@@ -1106,11 +1133,16 @@ return {
                 am = 'Nuevos ajustes para el mensaje de bienvenida:\nReglas\n*Descripcion*\n*Moderadores*',
                 ram = 'Nuevos ajustes para el mensaje de bienvenida:\n*Reglas*\n*Descripcion*\n*Moderadores*',
                 no = 'Nuevos ajustes para el mensaje de bienvenida:\nReglas\nDescripcion\nModeradores',
-                wrong_input = 'Argumento no disponible.\nUsa _/welcome [no|r|a|ra|ar]_',
                 custom = '*Custom welcome message* setted!\n\n&&&1',
                 custom_setted = '*Custom welcome message saved!*',
-                wrong_markdown = '_Not setted_ : I can\'t send you back this message, probably the markdown is *wrong*.\nPlease check the text sent',
             },
+			goodbye = {
+				no_input = 'No goodbye message',
+				media_setted = 'New media setted as goodbye message: ',
+				reply_media = 'Reply to a `sticker` or a `gif` to set them as *goodbye message*',
+				custom = '*Custom goodbye message* setted!\n\n&&&1',
+				custom_setted = '*Custom goodbye message saved!*',
+			},
             resume = {
                 header = 'Ajustes actuales de *&&&1*:\n\n*Idioma*: `&&&2`\n',
                 w_a = '*Tipo de Bienvenida*: `welcome + descripcion`\n',
@@ -1137,6 +1169,7 @@ return {
             Rules = '/rules',
             About = '/about',
             Welcome = 'Mensaje Bienvenida',
+			Goodbye = 'Goodbye message',
             Modlist = '/adminlist',
             Flag = 'Flag',
             Extra = 'Extra',
@@ -1376,8 +1409,8 @@ return {
                         .."`/media list` = Exibir as congigurações atuais para todas as mídias.\n"
                         .."\n*Lista de mídias suportadas*: _image, áudio, vídeo, sticker, gif, voz, contato, arquivo, link_\n",
                 welcome = "*Moderadores: configurações de boas-vindas *\n\n"
-                            .."`/menu` = receber em privada o teclado de menu. Você irá encontrar a opção de habilitar/desabilitar a mensagem de boas-vindas.\n"
                             .."\n*Mensagem de boas-vindas personalizada:*\n"
+							.."`/menu` = receive in private the menu keyboard. You will find an option to enable/disable welcome and goodbye messages.\n"
                             .."`/welcome Bem vindo $name, aproveite o grupo!`\n"
                             .."Escreve após \"/welcome\" sua mensagem de boas-vindas. Você pode usar alguns marcadores para incluir nome/username/id do novo membro do grupo\n"
                             .."Marcadores: _$username_ (irá ser substituído pelo username); _$name_ (irá ser substituído pelo nome); _$id_ (irá ser substituído pelo id); _$title_ (irá ser substituído pelo título do grupo).\n"
@@ -1387,7 +1420,11 @@ return {
                             .."Você pode compor sua mensagem de boas-vindas com as regras, a descrição e lista de moderadores.\n"
                             .."Voc&e pode compor ela escrevendo `/welcome` seguido pelos códigos que você deseja que seja incluído.\n"
                             .."_Codes_ : *r* = regras; *a* = descrição (sobre); *m* = lista de moderadores.\n"
-                            .."Por exemplo, com \"`/welcome rm`\", a mensagem de boas-vindas será exibida com regras e lista de moderadores",
+                            .."Por exemplo, com \"`/welcome rm`\", a mensagem de boas-vindas será exibida com regras e lista de moderadores\n\n"
+							.."*Goodbye message*\n"
+							.."Also you can set the custom goodbye message:\n"
+							.."`/goodbye` _message_\n"
+							.."Same placeholders and media are available",
                 extra = "*Moderadores: comandos extra*\n\n"
                         .."`/extra [#trigger] [reply]` = configure a resposta que deve ser enviada quando alguém escrever o gatilho.\n"
                         .."_Exemplo_ : com \"`/extra #ola Bom dia!`\", o bot irá responder \"Bom dia!\" cada vez que alguém escrever #ola.\n"
@@ -1478,6 +1515,7 @@ return {
             welcome_modlist = '\n\n*Creator*:\n&&&1\n*Admins*:\n&&&2',
             abt = '\n\n*Descrição*:\n',
             rls = '\n\n*Regras*:\n',
+            goodbye = 'Goodbye, &&&1!',
         },
         setabout = {
             no_bio = '*SEM DESCRIÇÃO* para este grupo.',
@@ -1538,11 +1576,16 @@ return {
                 am = 'Nova configuração para a mensagem de boas-vindas:\nRegras\n*Descrição*\n*Lista de moderadores(as)*',
                 ram = 'Nova configuração para a mensagem de boas-vindas:\n*Regras*\n*Descrição*\n*Lista de moderadores(as)*',
                 no = 'Nova configuração para a mensagem de boas-vindas:\nRegras\nDescrição\nLista de moderadores(as)',
-                wrong_input = 'Argumento inválido.\nUse _/welcome [no|r|a|ra|ar]_',
                 custom = '*Mensagem de boas-vindas personalizada* configurada!\n\n&&&1',
                 custom_setted = '*Mensagem de boas-vindas personalizada salva!*',
-                wrong_markdown = '_Não configurada_ : Eu não posso enviar de volta esta mensagem, provavelmente o markdown está *errado*.\nPor favor verifique o texto enviado',
             },
+			goodbye = {
+				no_input = 'No goodbye message',
+				media_setted = 'New media setted as goodbye message: ',
+				reply_media = 'Reply to a `sticker` or a `gif` to set them as *goodbye message*',
+				custom = '*Custom goodbye message* setted!\n\n&&&1',
+				custom_setted = '*Custom goodbye message saved!*',
+			},
             resume = {
                 header = 'Atuais configurações para *&&&1*:\n\n*Idioma*: `&&&2`\n',
                 w_a = '*Tipo de boas-vindas*: `boas-vindas + descrição`\n',
@@ -1569,6 +1612,7 @@ return {
             Rules = '/rules',
             About = '/about',
             Welcome = 'Mensagem de boas-vindas',
+			Goodbye = 'Goodbye message',
             Modlist = '/adminlist',
             Flag = 'Flag',
             Extra = 'Extra',
@@ -1807,7 +1851,7 @@ return {
                         .."`/media list` = show the current settings for all the media.\n"
                         .."\n*List of supported media*: _image, audio, video, sticker, gif, voice, contact, file, link_\n",
                 welcome = "*Moderators: welcome settings*\n\n"
-                            .."`/menu` = receive in private the menu keyboard. You will find an option to enable/disable the welcome message.\n"
+							.."`/menu` = receive in private the menu keyboard. You will find an option to enable/disable welcome and goodbye messages.\n"
                             .."\n*Custom welcome message:*\n"
                             .."`/welcome Welcome $name, enjoy the group!`\n"
                             .."Write after \"/welcome\" your welcome message. You can use some placeholders to include the name/username/id of the new member of the group\n"
@@ -1818,7 +1862,11 @@ return {
                             .."You can compose your welcome message with the rules, the description and the moderators list.\n"
                             .."You can compose it by writing `/welcome` followed by the codes of what the welcome message has to include.\n"
                             .."_Codes_ : *r* = rules; *a* = description (about); *m* = adminlist.\n"
-                            .."For example, with \"`/welcome rm`\", the welcome message will show rules and moderators list",
+                            .."For example, with \"`/welcome rm`\", the welcome message will show rules and moderators list\n\n"
+							.."*Goodbye message*\n"
+							.."Also you can set the custom goodbye message:\n"
+							.."`/goodbye` _message_\n"
+							.."Same placeholders and media are available",
                 extra = "*Moderators: extra commands*\n\n"
                         .."`/extra [#trigger] [reply]` = set a reply to be sent when someone writes the trigger.\n"
                         .."_Example_ : with \"`/extra #hello Good morning!`\", the bot will reply \"Good morning!\" each time someone writes #hello.\n"
@@ -1908,6 +1956,7 @@ return {
             welcome_modlist = '\n\n*Создатель*:\n&&&1\n*Администраторы*:\n&&&2',
             abt = '\n\n*Описание*:\n',
             rls = '\n\n*Правила*:\n',
+            goodbye = 'До свидания, &&&1!',
         },
         setabout = {
             no_bio = 'Описание этой группы *отсутствует*.',
@@ -1966,13 +2015,18 @@ return {
                 am = 'Новые настройки в приветственном сообщении:\nПравила\n*Описание*\n*Список модераторов*',
                 ram = 'Новые настройки в приветственном сообщении\n*Правила*\n*Описание*\n*Список модераторов*',
                 no = 'Новые настройки в приветственном сообщении:\nПравила\nОписание\nСписок модераторов',
-                wrong_input = 'Неправильный аргумент.\nИспользуй _/welcome [no|r|a|ra|ar]_',
                 media_setted = 'New media setted as welcome message: ',
                 reply_media = 'Reply to a `sticker` or a `gif` to set them as *welcome message*',
                 custom = '*Custom welcome message* setted!\n\n&&&1',
                 custom_setted = '*Custom welcome message saved!*',
-                wrong_markdown = '_Not setted_ : I can\'t send you back this message, probably the markdown is *wrong*.\nPlease check the text sent',
             },
+			goodbye = {
+				no_input = 'Укажи прощальное сообщение',
+				media_setted = 'New media setted as goodbye message: ',
+				reply_media = 'Reply to a `sticker` or a `gif` to set them as *goodbye message*',
+				custom = '*Custom goodbye message* setted!\n\n&&&1',
+				custom_setted = '*Custom goodbye message saved!*',
+			},
             resume = {
                 header = 'Текущие настройки для *&&&1*:\n\n*Язык*: `&&&2`\n',
                 w_a = '*Тип приветствия*: `Привет + описание`\n',
@@ -1999,6 +2053,7 @@ return {
             Rules = '/rules',
             About = '/about',
             Welcome = 'Приветствие',
+			Goodbye = 'Прощание',
             Modlist = '/adminlist',
             Flag = 'Флаг',
             Extra = 'Экстра',
@@ -2287,7 +2342,7 @@ return {
                     .."`/warnmax` = Setze das Limit für Verwarnungen bevor der Nutzer entfernt/gesperrt (kicked/bannend) wird.\n"
                     .."\nHow to see how many warns a user has received: the number is showed in the second page of the `/user` command. In this page, you will see a button to reset this number.",
                 welcome = "*Moderatoren: Willkommensnachrichteinstellungen*\n\n"
-                    .."`/menu` = receive in private the menu keyboard. You will find an option to enable/disable the welcome message.\n"
+					.."`/menu` = receive in private the menu keyboard. You will find an option to enable/disable welcome and goodbye messages.\n"
                     .."*Selbsterstellte Willkommensnachricht*:\n`/welcome Welcome $name, enjoy the group!"
                     .."`\nSchreibe nach \"/welcome\" deine Willkommensnachricht. Du kannst einige Platzhalter wie den Namen/Nutzernamen/ID des Neulings in der Gruppe einfügen\n"
                     .."Platzhalter: _$username_ (wird durch den Nutzernamen ersetzt); _$name_ (wird durch den Namen ersetzt); _$id_ (wird durch die ID ersetzt); _$title_ (wird durch den Gruppennamen (group title) ersetzt).\n\n"
@@ -2295,7 +2350,11 @@ return {
                     .."*Zusammengesetzte Willkommensnachricht*\n"
                     .."Du kannst deine Willkommensnachricht mit den Gruppenregeln, der Gruppenbeschreibung und der Liste der Moderatoren versehen (rules, description, moderators list).\n"
                     .."Dazu schreibe `/welcome` gefolgt von dem entsprechenden Code.\n_Codes_ : *r* = Gruppenregeln (rules); *a* = Gruppenbeschreibung (description, about); *m* = Liste der Moderatoren (adminlist).\n"
-                    .."Zum Beispiel wird die Willkommensnachricht mit \"`/welcome rm`\" die Gruppenregeln und die Liste der Moderatoren (rules and adminlist) enthalten",
+                    .."Zum Beispiel wird die Willkommensnachricht mit \"`/welcome rm`\" die Gruppenregeln und die Liste der Moderatoren (rules and adminlist) enthalten\n\n"
+					.."*Goodbye message*\n"
+					.."Also you can set the custom goodbye message:\n"
+					.."`/goodbye` _message_\n"
+					.."Same placeholders and media are available"
             },
             private = "Moin, *&&&1*!\nIch bin ein einfacher Bot, dazu geschaffen Leuten wie dir dabie zu helfen ihre Gruppen zu organisieren.\n\n*Wie ich dir helfen kann?*\nPuhh - ich habe so einige nützliche Fertigkeiten! Du kannst Nutzer *entfernen oder sperren (kick or ban)*, einen Regelsatz (rules)  und eine -beschreibung (description) definieren, Nutzer (users) verwarnen (warn), einige Parameter setzen um jemanden zu entfernen (kick) wenn bestimmte Voraussetzungen zutreffen (lies hierzu: *Flutschutz (antiflood)*/RNL (RTL)/Medientypen (media)...)\nErfahre mehr indem du mich zu einer Gruppe hinzufügst!\n\nDer Nutzer (user), der mich hinzufügt wird als Besitzer (owner) der Gruppe gespeichert. Wenn du nicht der tatsächliche Besitzer der Gruppe bist, kannst du jemand anders als solchen setzten indem du einfach auf eine seiner Nachrichten mit `/owner` antwortest.\nUm meine Moderationsfähigkeiten (entfernen/sperren; kick/ban) voll entfalten zu können, *musst du mich als Administrator zur Gruppe hinzufügen*.\nMerke: Moderationsbefehle (moderator commands) können nur von mit `/promote` beförderten Nutzern (user) genutzt werden. Ich bin leider nicht in der Lage herauszufinden, wer Administrator in der Gruppe ist - das ist momentan der einzige Weg.\n\nKontaktiere den Entwickler wegen einer Rückmeldung (feeback), einem Fehlerbericht (bug report) oder einer Frage mittels des \"`/c <feedback>`\" Befehls (command). EGAL WEGEN WAS - ER FREUT SICH ÜBER ALLES!\n\n[Offizieller Kanal (official channel)](https://telegram.me/GroupButler_ch) und der [Bewertungslink (vote link)](https://telegram.me/storebot?start=groupbutler_bot)"
         },
@@ -2322,7 +2381,8 @@ return {
             welcome = "Moin &&&1, und Willkommen in der Gruppe *&&&2*!",
             welcome_abt = "Es gibt keine Gruppenbeschreibung (description).",
             welcome_modlist = '\n\n*Creator*:\n&&&1\n*Admins*:\n&&&2',
-            welcome_rls = "PAARRTY!"
+            welcome_rls = "PAARRTY!",
+            goodbye = 'Goodbye, &&&1!'
         },
         setabout = {
             added = "*Beschreibung hinzugefügt (description added)*:\n\"&&&1\"",
@@ -2384,10 +2444,15 @@ return {
                 ram = "Neue Zusammensetzung der Willkommensnachricht:\n*Gruppenregeln (rules)*\n*Gruppenbeschreibung (bio/description)*\n*Moderatorenliste*",
                 reply_media = "Antwort (reply) auf einen `sticker` oder  ein `gif` um diesen/dieses as *Willkommensnachricht* zu setzen",
                 rm = "Neue Zusammensetzung der Willkommensnachricht:\n*Gruppenregeln (rules)*\nGruppenbeschreibung (bio/description)\n*Moderatorenliste*",
-                wrong_input = "Eingabe ungültig.\nNutze _/welcome [no|r|a|ra|ar]_",
-                wrong_markdown = "_Nicht speicherbar_ : Ich kann dir diese Nachricht nicht zurückschicken, wahrscheinlich wurden die *Formatierungsoptionen falsch* benutzt.\nBitte überarbeite den gesendeten Text nochmal",
                 custom_setted = '*Custom welcome message saved!*',
             },
+			goodbye = {
+				no_input = 'No goodbye message',
+				media_setted = 'New media setted as goodbye message: ',
+				reply_media = 'Reply to a `sticker` or a `gif` to set them as *goodbye message*',
+				custom = '*Custom goodbye message* setted!\n\n&&&1',
+				custom_setted = '*Custom goodbye message saved!*',
+			},
             resume = {
                 header = "Momentane Einstellungen für *&&&1*:\n\n*Sprache*: `&&&2`\n",
                 w_a = "*Willkommensnachrichtenzusammensetzung*: `Willkommensnachricht + Gruppenbeschreibung (bio/description)`\n",
@@ -2421,6 +2486,7 @@ return {
             Rtl = "RNL (RTL)",
             Rules = "/rules",
             Welcome = "Willkommensnachricht",
+			Goodbye = 'Goodbye message',
             Admin_mode = 'Admin mode',
         },
         warn = {
@@ -2700,14 +2766,18 @@ return {
               .."`/warnmax` = Sätter max antal varningar.\n"
               .."\nHow to see how many warns a user has received: the number is showed in the second page of the `/user` command. In this page, you will see a button to reset this number.",
               welcome = "*Moderatorer: välkomstinställningar*\n\n"
-              .."`/menu` = receive in private the menu keyboard. You will find an option to enable/disable the welcome message.\n"
+			  .."`/menu` = receive in private the menu keyboard. You will find an option to enable/disable welcome and goodbye messages.\n"
               .."*Eget välkomstmeddelande:*\n`/welcome Välkommen $name, ha det så roligt i gruppen!`\n"
               .."Skriv ditt välkomstmeddelande efter \"/welcome\". Du kan använda You can use some \"placeholders\" för användarens namn/användarnamn/id\n"
               .."Placeholders: _$username_ (ersätts av användarnamnet); _$name_ (ersätts av namnet); _$id_ (ersätts av id); _$title_ (infogar gruppens namn).\n\n"
               .."*GIF/sticker som välkomstmeddelande*\nDu kan använda en gif/sticker som välkomstmeddelande genom att besvara en gif/sticker med '/welcome'\n\n*Sammansatta välkomstmeddelanden*\n"
               .."Du kan komponera ihop ett meddelande med hjälp av gruppens regler, beskrivning och en lista över moderatorerna.\n"
               .."Du gör det genom att skriva `/welcome` följt av koderna för vad du vill inkludera.\n"
-              .."_Koder_ : *r* = regler; *a* = beskrivning (about); *m* = moderatorlista.\nTill exempel, med \"`/welcome rm`\", så blir meddelandet reglerna följt av moderatorlistan"
+              .."_Koder_ : *r* = regler; *a* = beskrivning (about); *m* = moderatorlista.\nTill exempel, med \"`/welcome rm`\", så blir meddelandet reglerna följt av moderatorlistan\n\n"
+			  .."*Goodbye message*\n"
+			  .."Also you can set the custom goodbye message:\n"
+			  .."`/goodbye` _message_\n"
+			  .."Same placeholders and media are available"
             },
             private = "Hej, *&&&1*!\nJag är en simpel bot för att hjälpa folk administrera grupper.\n\n"
               .."*Hur kan jag hjälpa dig?*\nJag har många användbara verktyg! Du kan *kicka och banna* användare, sätta regler och gruppbeskrivning, varna användare, sätta parmetrar för att kicka någon när något händer (dvs: *antiflood*/RTL/media...)\n"
@@ -2738,7 +2808,8 @@ return {
             welcome = "Hej &&&1, och välkommen till *&&&2*!",
             welcome_abt = "Ingen gruppbeskrivning.",
             welcome_modlist = "\n\n*Moderatorer*:\n",
-            welcome_rls = "Total anarki!"
+            welcome_rls = "Total anarki!",
+            goodbye = 'Goodbye, &&&1!'
         },
         setabout = {
             added = "*Beskrivning satt:*\n\"&&&1\"",
@@ -2771,6 +2842,7 @@ return {
             Rtl = "Rtl",
             Rules = "/rules",
             Welcome = "Välkomstmeddelande",
+			Goodbye = 'Goodbye message',
             Admin_mode = 'Admin mode',
             broken_group = 'There are no settings saved for this group.\nPlease run /initgroup to solve the problem :)',
             char = {
@@ -2834,9 +2906,14 @@ return {
                 ram = "Ny inställning för välkomstmeddelande:\n*Rules*\n*About*\n*Moderators list*",
                 reply_media = "Besvara en `sticker` eller en `gif-bild` för att sätta den som *välkomstmeddelande*",
                 rm = "Ny inställning för välkomstmeddelande:\n*Rules*\nAbout\n*Moderators list*",
-                wrong_input = "Fel argument.\nAnvänd _/welcome [no|r|a|ra|ar]_ istället",
-                wrong_markdown = "_Inte ändrat_ : Jag kan inte skicka texten tillbaka till dig, antagligen har den *fel* markdown-formattering.\nVänligen kontrollera texten."
-            }
+            },
+			goodbye = {
+				no_input = 'No goodbye message',
+				media_setted = 'New media setted as goodbye message: ',
+				reply_media = 'Reply to a `sticker` or a `gif` to set them as *goodbye message*',
+				custom = '*Custom goodbye message* setted!\n\n&&&1',
+				custom_setted = '*Custom goodbye message saved!*',
+			}
         },
         warn = {
             ban_motivation = 'Too many warnings',
@@ -3066,7 +3143,7 @@ return {
                         .."`/media list` = أظهر الإعدادات الحالية لجمع الوسائط.\n"
                         .."\n*قائمة وسائط يجري دعمها*: _image, audio, video, sticker, gif, voice, contact, file, link_\n",
                 welcome = "*مشرف: إعدادات الترحيب*\n\n"
-                            .."`/menu` = receive in private the menu keyboard. You will find an option to enable/disable the welcome message.\n"
+                            .."`/menu` = receive in private the menu keyboard. You will find an option to enable/disable welcome and goodbye messages.\n"
                             .."\n*رسالة الترحيب ال��اصة:*\n"
                             .."`/welcome مرحباً $name، استمتع بالمجموعة!`\n"
                             .."اكبت رسالتك للترحيب بعد أمر \"/welcome\". استطيع أن تكتب شيء بشكل مؤقت لتشل اسم مستخدم العضو الجديد للمجموعة.\n"
@@ -3077,7 +3154,11 @@ return {
                             .."بإمكانك إنشاء رسالة الترحيب التي تشمل قواعد، الوصف وقائمة المشرفين.\n"
                             .."تستطيع أن تكتبها بدءً من `/welcome` يتبعه المعلومات التي ترغب عن تشملها رسالة الترحيب\n"
                             .."_Codes_ : *r* = قواعد; *a* = وصف (حول); *m* = قائمة المشرفين.\n"
-                            .."مثلا، مع \"`/welcome rm`\", ستظهر رسالة الترحيب قواعد وقائمة المشرفين",
+                            .."مثلا، مع \"`/welcome rm`\", ستظهر رسالة الترحيب قواعد وقائمة المشرفين\n\n"
+							.."*Goodbye message*\n"
+							.."Also you can set the custom goodbye message:\n"
+							.."`/goodbye` _message_\n"
+							.."Same placeholders and media are available",
                 extra = "*المشرفون: أوامر إضافية*\n\n"
                         .."`/extra [#trigger] [reply]` = حدد در سيتم إرساله عندما يكتب أحد الكامةالمحفزة.\n"
                         .."_مثال_ : مع \"`/extra #hello صباح الخير!`\", سيرد البوت \"صباح الخير\" كلما أحد كتب #hello.\n"
@@ -3178,6 +3259,7 @@ return {
             welcome_modlist = '\n\n*خالق*:\n&&&1\n*مشرفون*:\n&&&2',
             abt = '\n\n*وصف*:\n',
             rls = '\n\n*قواعد*:\n',
+            goodbye = 'Goodbye, &&&1!',
         },
         setabout = {
             no_bio = 'لا يوجد وصف لهذه المجموعة.',
@@ -3238,11 +3320,16 @@ return {
                 am = 'إعدادات جديدة لرسالة الترحيب:\nقواعد\n*حول*\n*قائمة المشرفين*',
                 ram = 'إعدادات جديدة لرسالة الترحيب:\n*قواعد*\n*حول*\n*قائمة المشرفين*',
                 no = 'إعدادات جديدة لرسالة الترحيب:\nقواعد\nحول\nقائمة المشرفين',
-                wrong_input = 'الأمر غير متاح\nاستخدم _/welcome [no|r|a|ra|ar]_ بدلاً من ذلك',
                 custom = '*تم تعيين رسالة مخصصة!\n\n&&&1',
                 custom_setted = '*تم حفظ رسالة الترحيب!*',
-                wrong_markdown = '_عدم تعيين_ : لا استطيع أن أعيد لك هذه الرسالة، ربما تنسيق ماركداون غير صحيح.\nرجاء تأكد النص المرسل.',
             },
+			goodbye = {
+				no_input = 'No goodbye message',
+				media_setted = 'New media setted as goodbye message: ',
+				reply_media = 'Reply to a `sticker` or a `gif` to set them as *goodbye message*',
+				custom = '*Custom goodbye message* setted!\n\n&&&1',
+				custom_setted = '*Custom goodbye message saved!*',
+			},
             resume = {
                 header = 'الإعدادات الحالية ل*&&&1*:\n\n*لغة*: `&&&2`\n',
                 w_a = '*نوع الترحيب*: `ترحيب  + حول`\n',
@@ -3269,6 +3356,7 @@ return {
             Rules = '/rules',
             About = '/about',
             Welcome = 'رسالة الترحيب',
+			Goodbye = 'Goodbye message',
             Modlist = '/adminlist',
             Flag = 'علم',
             Extra = 'إكسترا',
@@ -3535,7 +3623,7 @@ return {
                     .."`/warnmax` = paramètrer le nombre max d'avertissements avant kick/bannissement.\n"
                     .."\nHow to see how many warns a user has received: the number is showed in the second page of the `/user` command. In this page, you will see a button to reset this number.",
                 welcome = "*Modérateurs: paramètres de bienvenue*\n\n"
-                    .."`/menu` = recevoir en privé le clavier de menu. Tu trouveras une option pour activer/désactiver le message de bienvenue.\n\n"
+					.."`/menu` = receive in private the menu keyboard. You will find an option to enable/disable welcome and goodbye messages.\n"
                     .."*Custumiser le message de bienvenue:*\n"
                     .."`/welcome Bienvenue $name, profite du groupe!`\nÉcris après \"/welcome\" ton message de bienvenue. Tu peux utiliser des codes spéciaux pour inclure le nom/le pseudonyme (@username)/l'ID du nouveau membre\n"
                     .."Codes: _$username_ (sera remplacé par le pseudonyme [@username]); _$name_ (sera remplacé par le nom); _$id_ (sera remplacé par son ID); _$title_ (sera remplacé par le nom du groupe).\n\n"
@@ -3544,7 +3632,11 @@ return {
                     .."*Message de bienvenue composé*\n"
                     .."Tu peux composer ton messages avec les règles, la description et la liste des modérateurs.\n"
                     .."Tu peux le composer en écrivant `/welcome` suivi du code du ce que le message de bienvenue doit inclure.\n"
-                    .."_Codes_ : *r* = règles; *a* = description (à propos); *m* = liste des admins.\nPar exemple, avec \"`/welcome rm`\", le message de bienvenue va montrer les règles et la liste de modérateurs"
+                    .."_Codes_ : *r* = règles; *a* = description (à propos); *m* = liste des admins.\nPar exemple, avec \"`/welcome rm`\", le message de bienvenue va montrer les règles et la liste de modérateurs\n\n"
+					.."*Goodbye message*\n"
+					.."Also you can set the custom goodbye message:\n"
+					.."`/goodbye` _message_\n"
+					.."Same placeholders and media are available"
             },
             all = "*Commandes pour tous*:\n"
                     .."`/dashboard` : voir toutes les infos du groupe en privé\n"
@@ -3602,7 +3694,8 @@ return {
             welcome = "Salut &&&1, et bienvenue dans *&&&2*!",
             welcome_abt = "Pas de description dans ce groupe.",
             welcome_modlist = "\n\n*Créateur*:\n&&&1\n*Admins*:\n&&&2",
-            welcome_rls = "Anarchie totale!"
+            welcome_rls = "Anarchie totale!",
+            goodbye = 'Goodbye, &&&1!'
         },
         setabout = {
             about_setted = "Nouvelle description *sauvée avec succès*!",
@@ -3636,6 +3729,7 @@ return {
             Rtl = "RTL (droite à gauche)",
             Rules = "/rules",
             Welcome = "Message de bienvenue",
+			Goodbye = 'Goodbye message',
             broken_group = "Il n'y a pas de paramètres sauvés pour ce groupe.\nUtilise s'il te plaît /initgroup pour résoudre le problème :)",
             char = {
                 arab_allow = "Langue arabe permise",
@@ -3695,9 +3789,14 @@ return {
                 ram = "Nouveau paramètres pour le message de bienvenue:\n*Règles*\n*À propos*\n*Liste des modérateurs*",
                 reply_media = "Réponds à un `sticker` ou à un `gif` pour les enregistrer comme *message de bienvenue*",
                 rm = "Nouveau paramètres pour le message de bienvenue:\n*Règles*\nÀ propos\n*Liste des modérateurs*",
-                wrong_input = "Argument invalide.\nUtilise _/welcome [no|r|a|ra|ar]_ à la place",
-                wrong_markdown = "_Non enregistré_ : Je ne peux t'envoyer en retour ce message, le Markdown doit probablement être *faux*.\nVérifie s'il te plaît le texte envoyé"
-            }
+            },
+			goodbye = {
+				no_input = 'No goodbye message',
+				media_setted = 'New media setted as goodbye message: ',
+				reply_media = 'Reply to a `sticker` or a `gif` to set them as *goodbye message*',
+				custom = '*Custom goodbye message* setted!\n\n&&&1',
+				custom_setted = '*Custom goodbye message saved!*',
+			}
         },
         warn = {
             ban_motivation = "Trop d'avertissements",
@@ -3920,11 +4019,15 @@ return {
                     .."`/media list` = 顯示關於媒體的設定\n\n"
                     .."支援的媒體︰圖像、音訊、影片、貼圖、Gif、錄音、聯絡人、檔案、連結",
                 welcome = "【歡迎訊息】\n\n"
-                    .."`/menu` = 透過私訊接收到控制面板，可以選擇開啓／關閉歡迎訊息\n\n．自訂歡迎訊息︰\n"
+					.."`/menu` = receive in private the menu keyboard. You will find an option to enable/disable welcome and goodbye messages.\n"
                     .."`/welcome Welcome $name, enjoy the group!`\n在 \"/welcome\" 之後打上你想要的訊息，你可以使用代碼來指出新用戶的 䁥稱／用戶名稱／用戶ＩＤ\n"
                     .."代碼︰_$username_（用戶名稱戶）；_$name_（䁥稱）；_$id_（用戶ＩＤ）；_$title_（群組名字）\n\n．GIF/貼圖作為歡迎訊息︰\n用 '/welcome' 指令來回覆Gif／貼圖便可設定成歡迎圖\n\n．"
                     .."合成歡迎訊息\n透過簡單的代碼，你可以利用群組規矩、簡介和管理員列表來製作觀迎訊息。\n代碼︰_r_（規矩）；_a_（簡介）；_m_（管理員名單）\n"
-                    .."例子︰「/welcome rm」，然後歡迎訊息便會有規矩和管理員名單。",
+                    .."例子︰「/welcome rm」，然後歡迎訊息便會有規矩和管理員名單。\n\n"
+					.."*Goodbye message*\n"
+					.."Also you can set the custom goodbye message:\n"
+					.."`/goodbye` _message_\n"
+					.."Same placeholders and media are available",
                 extra = "【選項︰自訂指令】\n\n"
                     .."`/extra [#發動文字] [預設回覆內容]` = 當發動文字出現，會自動回覆預設內容\n例子︰「/extra #謝謝 不用客氣」，當「#謝謝」出現時，人機會自動回覆「不用客氣」\n"
                     .."`/extra list` = 獲取自訂指令列表\n"
@@ -4005,7 +4108,8 @@ return {
             welcome = "你好 &&&1，歡迎來到 *&&&2*！",
             welcome_abt = "此群組沒有設定簡介。",
             welcome_modlist = "\n\n創群者︰\n&&&1\n管理員︰\n&&&2",
-            welcome_rls = "為所欲為！"
+            welcome_rls = "為所欲為！",
+            goodbye = 'Goodbye, &&&1!'
         },
         setabout = {
             about_setted = "已成功儲存新的簡介！",
@@ -4039,6 +4143,7 @@ return {
             Rtl = "右至左文字",
             Rules = "規矩（/rules）",
             Welcome = "歡迎訊息",
+			Goodbye = 'Goodbye message',
             broken_group = "這群組沒有已儲存的設定。\n請使用 /initgroup 指令來建立設定。",
             char = {
               arab_allow = "已允許阿拉伯文字",
@@ -4097,9 +4202,14 @@ return {
               ram = "歡迎訊息的新設定︰\n規矩\n簡介\n管理員名單",
               reply_media = "對 Gif 或貼圖回覆，將它設定成歡迎訊息",
               rm = "歡迎訊息的新設定︰\n規矩\n管理員名單",
-              wrong_input = "選項無效\n請使用 _/welcome [no|r|a|ra|ar]_",
-              wrong_markdown = "〝未能設定︰我不能向你傳送此訊息，可能是字型符號出錯\n請檢查訊息內容"
-            }
+            },
+			goodbye = {
+				no_input = 'No goodbye message',
+				media_setted = 'New media setted as goodbye message: ',
+				reply_media = 'Reply to a `sticker` or a `gif` to set them as *goodbye message*',
+				custom = '*Custom goodbye message* setted!\n\n&&&1',
+				custom_setted = '*Custom goodbye message saved!*',
+			}
         },
         warn = {
             ban_motivation = "警告次數達上限",
@@ -4320,7 +4430,7 @@ return {
                          .."`/media list` = نمایش وضعیت کنونی تنظیمات رسانه\n"
                          .."\n*لیست رسانه های قابل تنظیم*: _image, audio, video, sticker, gif, voice, contact, file, link_\n",
                  welcome = "*مدیزیت: تنظیمات پیام خوش آمدگویی*\n\n"
-                             .."`/menu` = فعال و غیر فعال کردن پیام خوش آمدگویی توسط صفحه کلید \n"
+                            .."`/menu` = receive in private the menu keyboard. You will find an option to enable/disable welcome and goodbye messages.\n"
                              .."\n*شخصی سازی پیام خوش آمد گویی:*\n"
                              .."`/welcome سلام $name به گروه ما خوش آمدید`\n"
                              .."بعد از دستور `/welcome` متن خوش آمدگویی خود رابنویسید.\n"
@@ -4331,7 +4441,11 @@ return {
                              .."شما میتوانید پیام خوش آمدگویی را با  توضییحات گروه و یا قوانین گروه ترکیب کنید\n"
                              .."شما میتوانید با دستور `/welcome` و کد های زیر پیام خوش آمدگویی را ترکیب نمایید\n"
                              .."_کد ها_ : *r* = قوانین; *a* = توضییحات گروه; *m* = لیست مدیران.\n"
-                             .."برای مثال, با دستور \"`/welcome rm`\", پیام خوش آمدگویی همرا با قوانین و لیست مدیران نمایش داده خواهد شد.",
+                             .."برای مثال, با دستور \"`/welcome rm`\", پیام خوش آمدگویی همرا با قوانین و لیست مدیران نمایش داده خواهد شد.\n\n"
+							.."*Goodbye message*\n"
+							.."Also you can set the custom goodbye message:\n"
+							.."`/goodbye` _message_\n"
+							.."Same placeholders and media are available",
                  extra = "*مدیریت: ذخیره دستورها*\n\n"
                          .."`/extra [#trigger] [reply]` = با ریپلای ذخیره خواهد شد و زمانی که کاربران trigger بنویسند ربات پاسخ خواهد داد.\n"
                          .."_مثال_ : با \"`/extra #hello Good morning!`\", ربات جواب خواهد داد \"Good morning!\" اگر کاربری #hello بنویسد.\n"
@@ -4421,6 +4535,7 @@ return {
              welcome_modlist = '\n\n*سازنده گروه*:\n&&&1\n*مدیران*:\n&&&2',
              abt = '\n\n*توضییحات*:\n',
              rls = '\n\n*قوانین*:\n',
+             goodbye = 'Goodbye, &&&1!',
          },
          setabout = {
              no_bio = 'توضییحاتی برای این گروه ذخیره نشده',
@@ -4477,11 +4592,16 @@ return {
                  am = 'New settings for the welcome message:\nRules\n*About*\n*Moderators list*',
                  ram = 'New settings for the welcome message:\n*Rules*\n*About*\n*Moderators list*',
                  no = 'New settings for the welcome message:\nRules\nAbout\nModerators list',
-                 wrong_input = 'Argument unavailable.\nUse _/welcome [no|r|a|ra|ar]_ instead',
                  custom = '*Custom welcome message* setted!\n\n&&&1',
                  custom_setted = '*Custom welcome message saved!*',
-                 wrong_markdown = '_Not setted_ : I can\'t send you back this message, probably the markdown is *wrong*.\nPlease check the text sent',
              },
+			 goodbye = {
+				 no_input = 'No goodbye message',
+				 media_setted = 'New media setted as goodbye message: ',
+				 reply_media = 'Reply to a `sticker` or a `gif` to set them as *goodbye message*',
+				 custom = '*Custom goodbye message* setted!\n\n&&&1',
+				 custom_setted = '*Custom goodbye message saved!*',
+			 },
              resume = {
                  header = 'تنظیمات فعلی *&&&1*:\n\n*زبان*: `&&&2`\n',
                  w_a = '*Welcome type*: `welcome + about`\n',
@@ -4508,6 +4628,7 @@ return {
              Rules = '/rules',
              About = '/about',
              Welcome = 'Welcome message',
+			 Goodbye = 'Goodbye message',
              Modlist = '/adminlist',
              Flag = 'Flag',
              Extra = 'Extra',
