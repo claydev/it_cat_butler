@@ -1,20 +1,6 @@
 -- utilities.lua
 -- Functions shared among plugins.
 
-function get_word(s, i) -- get the indexed word in a string
-
-	s = s or ''
-	i = i or 1
-
-	local t = {}
-	for w in s:gmatch('%g+') do
-		table.insert(t, w)
-	end
-
-	return t[i] or false
-
-end
-
 function string:input() -- Returns the string after the first space.
 	if not self:find(' ') then
 		return false
@@ -51,15 +37,6 @@ function is_bot_owner(msg, real_owner) --if real owner is true, the function wil
 	return false
 end
 
-function is_bot_admin(chat_id)
-	local status = api.getChatMember(chat_id, bot.id).result.status
-	if not(status == 'administrator') then
-		return false
-	else
-		return true
-	end
-end
-
 function is_mod(msg)
 	if config.admin.admins[msg.from.id] then
 		-- Bot owners always are considered as moderators
@@ -75,42 +52,6 @@ function is_mod(msg)
 	else
 		return false, true
 	end
-end
-
-function is_mod2(chat_id, user_id)
-	local res = api.getChatMember(chat_id, user_id)
-	if not res then
-		return false, false
-	end
-	local status = res.result.status
-	if status == 'creator' or status == 'administrator' then
-		return true, true
-	else
-		return false, true
-	end
-end
-
-function is_owner(msg)
-	local status = api.getChatMember(msg.chat.id, msg.from.id).result.status
-	if status == 'creator' then
-		return true
-	else
-		return false
-	end
-end
-
-function is_owner2(chat_id, user_id)
-	local status = api.getChatMember(chat_id, user_id).result.status
-	if status == 'creator' then
-		return true
-	else
-		return false
-	end
-end
-
-function set_owner(chat_id, user_id, nick)
-	db:hset('chat:'..chat_id..':mod', user_id, nick) --mod
-	db:hset('chat:'..chat_id..':owner', user_id, nick) --owner
 end
 
 function is_locked(msg, cmd)
@@ -143,11 +84,6 @@ function is_blocked_global(id)
 	else
 		return false
 	end
-end
-
-function string:trim() -- Trims whitespace from a string.
-	local s = self:gsub('^%s*(.-)%s*$', '%1')
-	return s
 end
 
 function load_data(filename) -- Loads a JSON file as a table.
@@ -209,7 +145,7 @@ end
 local function create_folder(name)
 	local cmd = io.popen('sudo mkdir '..name)
     cmd:read('*all')
-    cmd = io.popen('sudo chmod -R 777 '..name)
+    cmd = io.popen('sudo chmod -R 775 '..name)
     cmd:read('*all')
     cmd:close()
 end
@@ -434,12 +370,6 @@ function migrate_chat_info(old, new, on_request)
 	if on_request then
 		api.sendReply(msg, 'Should be done')
 	end
-end
-
-function div()
-	print('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
-	print('XXXXXXXXXXXXXXXXXX BREAK XXXXXXXXXXXXXXXXXXX')
-	print('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
 end
 
 function to_supergroup(msg)
