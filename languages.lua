@@ -432,6 +432,12 @@ return {
                         ..'You can use the last line to change how many warnings should the bot give before kick/ban someone for a forbidden media\n'
                         ..'The number is not related the the normal `/warn` command',
         },
+		notifications = {
+			mention1 = '&&&1 [mentioned](&&&2) you in the group "&&&3"',
+			mention2 = '&&&1 mentioned you in the group "&&&2"',
+			subscribe = '_The subscribe to your mentions was activated successfully_',
+			unscribe = '_The subscribe was deactivated successfully_',
+		},
     },
 	it = {
 	    status = {
@@ -873,6 +879,12 @@ return {
                         ..'Puoi usare l\'ultima riga per decidere quante volte il bot deve avvisare un utente prima di bannarlo/kickarlo per aver inviato un media proibito.\n'
                         ..'Questo numero non è correlato in alcun modo al comando `/warn`.',
         },
+		notifications = {
+			mention1 = '&&&1 [mentioned](&&&2) you in the group "&&&3"',
+			mention2 = '&&&1 mentioned you in the group "&&&2"',
+			subscribe = '_The subscribe to your mentions was activated successfully_',
+			unscribe = '_The subscribe was deactivated successfully_',
+		},
     },
 	es = {
 	    status = {
@@ -1315,6 +1327,12 @@ return {
                         ..'You can use the last line to change how many warnings should the bot give before kick/ban someone for a forbidden media\n'
                         ..'The number is not related the the normal `/warn` command',
         },
+		notifications = {
+			mention1 = '&&&1 [mentioned](&&&2) you in the group "&&&3"',
+			mention2 = '&&&1 mentioned you in the group "&&&2"',
+			subscribe = '_The subscribe to your mentions was activated successfully_',
+			unscribe = '_The subscribe was deactivated successfully_',
+		},
     },
     br = {
         status = {
@@ -1758,6 +1776,12 @@ return {
                         ..'Você pode usar a última linha para mudar quantas advertências o bot deve entregar antes de kickar/banir alguém por mídia proibida\n'
                         ..'O número não é relativo ao do comando normal `/warn`',
         },
+		notifications = {
+			mention1 = '&&&1 [mentioned](&&&2) you in the group "&&&3"',
+			mention2 = '&&&1 mentioned you in the group "&&&2"',
+			subscribe = '_The subscribe to your mentions was activated successfully_',
+			unscribe = '_The subscribe was deactivated successfully_',
+		},
     },
     ru = {
         status = {
@@ -2198,6 +2222,12 @@ return {
                         ..'You can use the last line to change how many warnings should the bot give before kick/ban someone for a forbidden media\n'
                         ..'The number is not related the the normal `/warn` command',
         },
+		notifications = {
+			mention1 = '&&&1 [упомянул](&&&2) тебя в группе «&&&3»',
+			mention2 = '&&&1 упомянул тебя в группе «&&&2»',
+			subscribe = '_Подписка на твои упоминания успешно активирована_',
+			unscribe = '_Подписка успешно деактивирована_',
+		},
     },
     de = {
         status = {
@@ -2624,6 +2654,12 @@ return {
                 ..'• 👤: the bot will reply *in private* with normal users and in the group with admins\n'
                 ..'\n*Other settings*: for the other settings, icon are self explanatory\n',
         },
+		notifications = {
+			mention1 = '&&&1 [mentioned](&&&2) you in the group "&&&3"',
+			mention2 = '&&&1 mentioned you in the group "&&&2"',
+			subscribe = '_The subscribe to your mentions was activated successfully_',
+			unscribe = '_The subscribe was deactivated successfully_',
+		},
     },
     sv = {
         status = {
@@ -3050,6 +3086,12 @@ return {
                 ..'• 👤: the bot will reply *in private* with normal users and in the group with admins\n'
                 ..'\n*Other settings*: for the other settings, icon are self explanatory\n',
         },
+		notifications = {
+			mention1 = '&&&1 [mentioned](&&&2) you in the group "&&&3"',
+			mention2 = '&&&1 mentioned you in the group "&&&2"',
+			subscribe = '_The subscribe to your mentions was activated successfully_',
+			unscribe = '_The subscribe was deactivated successfully_',
+		},
     },
     ar = {
         status = {
@@ -3501,6 +3543,12 @@ return {
                         ..'You can use the last line to change how many warnings should the bot give before kick/ban someone for a forbidden media\n'
                         ..'The number is not related the the normal `/warn` command',
         },
+		notifications = {
+			mention1 = '&&&1 [mentioned](&&&2) you in the group "&&&3"',
+			mention2 = '&&&1 mentioned you in the group "&&&2"',
+			subscribe = '_The subscribe to your mentions was activated successfully_',
+			unscribe = '_The subscribe was deactivated successfully_',
+		},
     },
     fr = {
         status = {
@@ -3932,6 +3980,12 @@ return {
                         ..'You can use the last line to change how many warnings should the bot give before kick/ban someone for a forbidden media\n'
                         ..'The number is not related the the normal `/warn` command',
         },
+		notifications = {
+			mention1 = '&&&1 [mentioned](&&&2) you in the group "&&&3"',
+			mention2 = '&&&1 mentioned you in the group "&&&2"',
+			subscribe = '_The subscribe to your mentions was activated successfully_',
+			unscribe = '_The subscribe was deactivated successfully_',
+		},
     },
     tc = {
         status = {
@@ -4337,6 +4391,12 @@ return {
                         ..'You can use the last line to change how many warnings should the bot give before kick/ban someone for a forbidden media\n'
                         ..'The number is not related the the normal `/warn` command',
         },
+		notifications = {
+			mention1 = '&&&1 [mentioned](&&&2) you in the group "&&&3"',
+			mention2 = '&&&1 mentioned you in the group "&&&2"',
+			subscribe = '_The subscribe to your mentions was activated successfully_',
+			unscribe = '_The subscribe was deactivated successfully_',
+		},
     },
 	fa = {
         status = {
@@ -4771,5 +4831,11 @@ return {
                          ..'You can use the last line to change how many warnings should the bot give before kick/ban someone for a forbidden media\n'
                          ..'The number is not related the the normal `/warn` command',
          },
+		notifications = {
+			mention1 = '&&&1 [mentioned](&&&2) you in the group "&&&3"',
+			mention2 = '&&&1 mentioned you in the group "&&&2"',
+			subscribe = '_The subscribe to your mentions was activated successfully_',
+			unscribe = '_The subscribe was deactivated successfully_',
+		},
      },
 }
